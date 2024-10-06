@@ -1,0 +1,36 @@
+<?php 
+$host= "127.0.0.1:3307"; 
+$username="root"; 
+$password= ""; 
+$database="login_page"; 
+$conn=new mysqli($host, $username, $password, $database); 
+if($conn->connect_error) 
+{ 
+ die("connection falied:".$conn->connection_error); 
+} 
+if($_SERVER["REQUEST_METHOD"]=="POST"){ 
+$Username=$_POST["Username"]; 
+$Password=$_POST["Password"]; 
+$sql="INSERT INTO Student(Username,Password) VALUES('$Username','$Password')"; 
+ if($conn->query($sql)==TRUE){ 
+ echo "Student Logged in successfully"; 
+ } 
+ else{ 
+ echo "Error".$sql."<br>".$conn->error; 
+ } 
+ } 
+?> 
+<html> 
+<head> 
+<title>Login Page</title></head> 
+<body> 
+<h1>Login page</h1> 
+<form action="" method="post"> 
+<label for="Username">Username</label> 
+<input type="text" name="Username" id="Username"><br><br> 
+<label for="Password">Password</label> 
+<input type="text" name="Password" id="Password"><br><br> 
+<input type="submit" value="submit"> 
+</form> 
+</body> 
+</html>
