@@ -10,4 +10,54 @@
 htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <label for="initialBalance">Initial Balance:</label>
 <input type="number" name="initialBalance" required><br><br>
-<
+<label for=;numYranscation">Number of Transaction:</label>
+<input type="number"name="numTransaction" required><br><br>
+<label for="transactionType">Transaction Type:</lable>
+<select name="transactionType" required>
+<option value="deposit">Deposite</option>
+<option value= "withdraw">Withdraw</option>
+</select><br><br>
+<label for="amount">Amount:</label>
+<input type="number" name="amount" required.<br><br>
+<input type="submit" value="Perform Transaction">
+</Form>
+<?php
+if ($_SERVER["REQUEST_METHOD"]=="POST""){
+$iBalance=$_POST["initialBalance"];
+$numT =$_POST["num Transaction"];
+$tranType= $_POST["transaction Type"];
+$amt =$_POST["amount"];
+echo "<h3>Transaction result:</h3>"
+echo "<p>Initial Balance: $iBalance</P>";
+for ($i=1;$i<=$numT;$i++){
+echo "<p>Transaction $i:</p>";
+switch($transType){
+case "deposit":
+$iBalance+=$amt;
+echo "<p>Deposit:+$amt</P>";
+break;
+case "Withdraw":
+if ($amt <=$iBalance){
+$iBalance-=$amt;
+echo "<p>Withdraw:-$amt</P>";
+}else{
+echo "<p style='color:red;'>Insufficient funds for withdrawl!</P>";
+}
+break;
+default:
+echo "<p style='color:red;'>Invalid transaction type!</P>";
+}
+}
+echo"<p>Final Balance:$iBalance</P>";
+}
+?>
+</body>
+</html>
+
+
+
+
+
+
+
+
