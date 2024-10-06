@@ -1,57 +1,13 @@
 <html>
 <head>
-<meta charset=UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-
-scale=1.0&quot;&gt;
-&lt;title&gt;Bank Transactions&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h2&gt;Bank Transactions&lt;/h2&gt;
-&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo
-htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]); ?&gt;&quot;&gt;
-&lt;label for=&quot;initialBalance&quot;&gt;Initial Balance:&lt;/label&gt;
-&lt;input type=&quot;number&quot; name=&quot;initialBalance&quot; required&gt;&lt;br&gt;&lt;br&gt;
-&lt;label for=&quot;numTransactions&quot;&gt;Number of Transactions:&lt;/label&gt;
-&lt;input type=&quot;number&quot; name=&quot;numTransactions&quot; required&gt;&lt;br&gt;&lt;br&gt;
-&lt;label for=&quot;transactionType&quot;&gt;Transaction Type:&lt;/label&gt;
-&lt;select name=&quot;transactionType&quot; required&gt;
-&lt;option value=&quot;deposit&quot;&gt;Deposit&lt;/option&gt;
-&lt;option value=&quot;withdraw&quot;&gt;Withdraw&lt;/option&gt;
-&lt;/select&gt;&lt;br&gt;&lt;br&gt;
-&lt;label for=&quot;amount&quot;&gt;Amount:&lt;/label&gt;
-&lt;input type=&quot;number&quot; name=&quot;amount&quot; required&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Perform Transactions&quot;&gt;
-&lt;/form&gt;
-&lt;?php
-if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
-$iBalance = $_POST[&quot;initialBalance&quot;];
-$numT = $_POST[&quot;numTransactions&quot;];
-$tranType = $_POST[&quot;transactionType&quot;];
-$amt = $_POST[&quot;amount&quot;];
-
-echo &quot;&lt;h3&gt;Transaction Results:&lt;/h3&gt;&quot;;
-echo &quot;&lt;p&gt;Initial Balance: $iBalance&lt;/p&gt;&quot;;
-for ($i = 1; $i &lt;= $numT; $i++) {
-echo &quot;&lt;p&gt;Transaction $i:&lt;/p&gt;&quot;;
-switch ($tranType) {
-case &quot;deposit&quot;:
-$iBalance += $amt;
-echo &quot;&lt;p&gt;Deposit: +$amt&lt;/p&gt;&quot;;
-break;
-case &quot;withdraw&quot;:
-if ($amt &lt;= $iBalance) {
-$iBalance -= $amt;
-echo &quot;&lt;p&gt;Withdrawal: -$amt&lt;/p&gt;&quot;;
-} else {
-echo &quot;&lt;p style=&#39;color: red;&#39;&gt;Insufficient funds for withdrawal!&lt;/p&gt;&quot;;
-}
-break;
-default:
-echo &quot;&lt;p style=&#39;color: red;&#39;&gt;Invalid transaction type!&lt;/p&gt;&quot;;
-}
-}
-echo &quot;&lt;p&gt;Final Balance: $iBalance&lt;/p&gt;&quot;;
-}
-?&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bank Transactions</title>
+</head>
+<body>
+<h2>Bank Transactions</h2>
+<form method="post" action="?php echo
+htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<label for="initialBalance">Initial Balance:</label>
+<input type="number" name="initialBalance" required><br><br>
+<
